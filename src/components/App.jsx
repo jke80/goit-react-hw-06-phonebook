@@ -22,7 +22,7 @@ export const App = () => {
   // );
 
   const contacts = useSelector(state=> state.contacts);
-  console.log(contacts);
+  
    useEffect(() => {
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(contacts));

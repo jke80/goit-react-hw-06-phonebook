@@ -22,7 +22,6 @@ const dispatch = useDispatch();
   };
 
   const handelSubmit = e => {
-    // const { contacts, onSubmit } = this.props;
     const { name, number } = state;
     e.preventDefault();
 

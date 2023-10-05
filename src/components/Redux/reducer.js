@@ -16,8 +16,7 @@ const TEST_CONTACTS = [
             return [...state, action.payload] ;
           }
           case 'contacts/deleteContact': {
-            console.log(action);
-              return state.filter(contact=>contact.id!==action.payload);
+            return state.filter(contact=>contact.id!==action.payload);
           }
           default: 
           return state;
