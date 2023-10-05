@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { FormStyled } from './FormStyled';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'components/Redux/actions';
+import { getContacts } from 'components/Redux/selectors';
 
 const INITIAL_STATE = {
   name: '',
   number: '',
 };
 
-export const Form = ({ onSubmit, contacts }) => {
+export const Form = () => {
+  const contacts = useSelector(getContacts);
+const dispatch = useDispatch();
   const [state, setState] = useState(INITIAL_STATE);
 
   // state = { ...INITIAL_STATE };
@@ -26,8 +30,8 @@ export const Form = ({ onSubmit, contacts }) => {
       Notify.failure(`${name} is already in contacts`);
       return;
     }
-
-    onSubmit({ name, number });
+dispatch(addContact({name, number}))
+Notify.success(`Contact ${name} added successfully`);
     setState(INITIAL_STATE);
   };
 
@@ -62,13 +66,3 @@ export const Form = ({ onSubmit, contacts }) => {
   );
 };
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-};
