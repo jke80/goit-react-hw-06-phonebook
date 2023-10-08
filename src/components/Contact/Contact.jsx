@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 
 import { StyledContact } from './StyledContact';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'components/Redux/actions';
+import { deleteContact } from 'components/Redux/contacts.slice';
+// import { deleteContact } from 'components/Redux/actions';
 
 export const Contact = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();

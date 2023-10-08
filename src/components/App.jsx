@@ -1,9 +1,10 @@
 
-import React, {useEffect } from 'react';
+import React from 'react';
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { useSelector } from 'react-redux';
+
 // import { getContacts } from './Redux/selectors';
 
 
@@ -14,7 +15,7 @@ import { useSelector } from 'react-redux';
 //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 // ];
 
-const LS_KEY = 'savedContacts';
+// const LS_KEY = 'savedContacts';
 
 export const App = () => {
   // const [contacts, setContacts] = useState(
@@ -23,13 +24,13 @@ export const App = () => {
 
   const contacts = useSelector(state=> state.contacts);
   
-   useEffect(() => {
-    try {
-      localStorage.setItem(LS_KEY, JSON.stringify(contacts));
-    } catch (err) {
-      console.error('Set state error: ', err.message);
-    }
-  }, [contacts]);
+  //  useEffect(() => {
+  //   try {
+  //     localStorage.setItem(LS_KEY, JSON.stringify(contacts));
+  //   } catch (err) {
+  //     console.error('Set state error: ', err.message);
+  //   }
+  // }, [contacts]);
 
   return (
     <div

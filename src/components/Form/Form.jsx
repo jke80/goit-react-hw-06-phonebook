@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { FormStyled } from './FormStyled';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/Redux/actions';
+// import { addContact } from 'components/Redux/actions';
 import { getContacts } from 'components/Redux/selectors';
+import { addContact } from 'components/Redux/contacts.slice';
 
 const INITIAL_STATE = {
   name: '',
