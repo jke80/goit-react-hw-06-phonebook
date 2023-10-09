@@ -13,8 +13,9 @@ import {rootReducer} from './reducers'
 // export const store = createStore(rootReducer, enhancer);
 
 const persistConfig = {
-  key: 'contacts',
+  key: 'root',
   storage,
+  blacklist: ['filter'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
